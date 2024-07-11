@@ -1,0 +1,88 @@
+﻿<Window x:Class="BMCGen.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BMCGen"
+        mc:Ignorable="d"
+        Title="Business Model Canvas Generator" Height="780" Width="1100" ResizeMode="CanMinimize" >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="110"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="110"/>
+            <ColumnDefinition Width="15"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="1">Customers File</Label>
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Grid.ColumnSpan="2">
+            <TextBox x:Name="txtCustomersFile"  Width="900" Margin="2"></TextBox>
+            <Button Width="45" Margin="2,2,2,2" Click="Browse_Customers">Browse</Button>
+        </StackPanel>
+
+        <Label Grid.Row="2">Metrics File</Label>
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" Grid.ColumnSpan="2">
+            <TextBox x:Name="txtMetricsFile"  Width="900" Margin="2"></TextBox>
+            <Button Width="45" Margin="2,2,2,2" Click="Browse_Metrics">Browse</Button>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" Grid.ColumnSpan="2">
+            <TextBox x:Name="txtCustomer" Width="200" Margin="2" IsReadOnly="False" AcceptsReturn="True" Text="[CUSTOMER]"></TextBox>
+            <TextBox x:Name="txtTPID" Width="200" Margin="2" IsReadOnly="False" AcceptsReturn="True" Text="[TPID]"></TextBox>
+            <TextBox x:Name="txtDomain" Width="200" Margin="2" IsReadOnly="False" AcceptsReturn="True" Text="[DOMAIN]"></TextBox>
+            <CheckBox x:Name="ckUpdateOnly" Margin="15,8,0,0">Update Data Only</CheckBox>
+            <CheckBox x:Name="ckGenerateFile" Margin="15,8,0,0">Generate Export File Only</CheckBox>
+        </StackPanel>
+
+        <Label Grid.Row="4">System Prompt</Label>
+        <TextBox x:Name="txtSystem" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Margin="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" IsReadOnly="False" AcceptsReturn="True" TextWrapping="Wrap"
+                 Text="Act as if you are the world’s expert on the Business Model Canvas and its key building blocks. I want you to be my Business Model Canvas assistant that obtains the latest most up to date information."></TextBox>
+
+        <Label Grid.Row="5">BMC Query</Label>
+        <TextBox x:Name="txtBMCQuery" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2" Margin="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" IsReadOnly="False" AcceptsReturn="True" TextWrapping="Wrap"
+                 Text="Create a comprehensive Business Model Canvas for [CUSTOMER], at the expert level, detailing the following building blocks in the classic format:​ &#10;
+1. Customer Segments: Define the different groups of people or organizations that [CUSTOMER] aims to reach and serve.&#10;
+2. Value Propositions: Describe the unique value that [CUSTOMER] offers to its customers, including product and service offerings.​&#10;
+3. Channels: Detail the ways in which [CUSTOMER] delivers its value proposition to its customer segments.​&#10;
+4. Customer Relationships: Explain how [CUSTOMER] establishes and maintains relationships with its various customer segments.​&#10;
+5. Key Resources: List the resources that are essential for [CUSTOMER] to make its business model work.​&#10;
+6. Key Activities: Outline the core activities that [CUSTOMER] engages in to deliver its value proposition.​&#10;
+7. Key Partners: Identify the main partners and suppliers that [CUSTOMER] collaborates with, including any strategic alliances.​&#10;
+8. Cost Structure: Describe the major cost drivers in [CUSTOMER] business model, and how they are managed.​&#10;
+9. Revenue Streams: Identify the sources of revenue for [CUSTOMER], and how the company generates income from its value propositions.​&#10;&#10;
+Please ensure that the information is current, accurate, and specific to [CUSTOMER], reflecting its operations and market presence. Provide three or more sentences, in bullet point format per building block. Use the latest [CUSTOMER] financial reports, market analyses, financial documents and research sources.​&#10;&#10;​​
+The purpose of this Business Model Canvas is to help Microsoft Technical Sales for Enterprise teams analyze and understand [CUSTOMER]’s business model to be able to identify opportunities for Microsoft to help [CUSTOMER] grow and expand its business.​"></TextBox>
+
+        <Label Grid.Row="6">Azure</Label>
+        <TextBox x:Name="txtAzureQuery" Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="2" Margin="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" IsReadOnly="False" AcceptsReturn="True" TextWrapping="Wrap"
+                 Text="Thank you. Using no more than 400 words, how might Microsoft Azure Apps, Infrastructure, Data and AI help [CUSTOMER] grow its strengths, identify and deliver on opportunities to grow their business and compete and win against disrupters?"></TextBox>
+
+        <Label Grid.Row="7">Dynamics</Label>
+        <TextBox x:Name="txtDynamicsQuery" Grid.Column="1" Grid.Row="7" Grid.ColumnSpan="2" Margin="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" IsReadOnly="False" AcceptsReturn="True" TextWrapping="Wrap"
+         Text="Thank you. Using no more than 400 words, how might Microsoft Dynamics 365 help [CUSTOMER] grow its strengths, identify and deliver on opportunities to grow their business and compete and win against disrupters?"></TextBox>
+
+        <Label Grid.Row="8">Modern Work</Label>
+        <TextBox x:Name="txtModernWorkQuery" Grid.Column="1" Grid.Row="8" Grid.ColumnSpan="2" Margin="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" IsReadOnly="False" AcceptsReturn="True" TextWrapping="Wrap"
+         Text="Thank you. Using no more than 400 words, how might Microsoft Office 365 help [CUSTOMER] grow its strengths, identify and deliver on opportunities to grow their business and compete and win against disrupters?"></TextBox>
+
+        <Label Grid.Row="9">Summary</Label>
+        <TextBox x:Name="txtSummaryQuery" Grid.Column="1" Grid.Row="9" Grid.ColumnSpan="2" Margin="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" IsReadOnly="False" AcceptsReturn="True" TextWrapping="Wrap"
+         Text="Using no more than 120 words, please provide the latest up to date information information about [CUSTOMER]. Please include concise details of where their headquarters are, how many employees they have, what countries operate in and what jobs they are hiring for."></TextBox>
+
+        <Label Grid.Row="10" Grid.Column="1" Margin="1" x:Name="lblMessage"></Label>
+        <Button Grid.Row="10" Grid.Column="2" Margin="5" x:Name="btnProcess" Click="btnProcess_Click" >Process</Button>
+    </Grid>
+</Window>
