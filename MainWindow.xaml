@@ -16,10 +16,11 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="15"/>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="10"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="60"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
             <RowDefinition Height="60"/>
             <RowDefinition Height="60"/>
             <RowDefinition Height="60"/>
@@ -32,19 +33,13 @@
             <TextBox x:Name="txtCustomersFile"  Width="900" Margin="2"></TextBox>
             <Button Width="45" Margin="2,2,2,2" Click="Browse_Customers">Browse</Button>
         </StackPanel>
-
-        <Label Grid.Row="2">Metrics File</Label>
-        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" Grid.ColumnSpan="2">
-            <TextBox x:Name="txtMetricsFile"  Width="900" Margin="2"></TextBox>
-            <Button Width="45" Margin="2,2,2,2" Click="Browse_Metrics">Browse</Button>
-        </StackPanel>
-
+        
         <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" Grid.ColumnSpan="2">
             <TextBox x:Name="txtCustomer" Width="200" Margin="2" IsReadOnly="False" AcceptsReturn="True" Text="[CUSTOMER]"></TextBox>
             <TextBox x:Name="txtTPID" Width="200" Margin="2" IsReadOnly="False" AcceptsReturn="True" Text="[TPID]"></TextBox>
             <TextBox x:Name="txtDomain" Width="200" Margin="2" IsReadOnly="False" AcceptsReturn="True" Text="[DOMAIN]"></TextBox>
-            <CheckBox x:Name="ckUpdateOnly" Margin="15,8,0,0">Update Data Only</CheckBox>
-            <CheckBox x:Name="ckGenerateFile" Margin="15,8,0,0">Generate Export File Only</CheckBox>
+            <CheckBox x:Name="ckGenerateExcel" Margin="125,8,0,0" IsChecked="True">Generate Excel</CheckBox>
+            <CheckBox x:Name="ckGenerateVisio" Margin="15,8,0,0">Generate Visio</CheckBox>
         </StackPanel>
 
         <Label Grid.Row="4">System Prompt</Label>
@@ -82,7 +77,11 @@ The purpose of this Business Model Canvas is to help Microsoft Technical Sales f
         <TextBox x:Name="txtSummaryQuery" Grid.Column="1" Grid.Row="9" Grid.ColumnSpan="2" Margin="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" IsReadOnly="False" AcceptsReturn="True" TextWrapping="Wrap"
          Text="Using no more than 120 words, please provide the latest up to date information information about [CUSTOMER]. Please include concise details of where their headquarters are, how many employees they have, what countries operate in and what jobs they are hiring for."></TextBox>
 
-        <Label Grid.Row="10" Grid.Column="1" Margin="1" x:Name="lblMessage"></Label>
-        <Button Grid.Row="10" Grid.Column="2" Margin="5" x:Name="btnProcess" Click="btnProcess_Click" >Process</Button>
+        <Label Grid.Row="10">Challenges</Label>
+        <TextBox x:Name="txtChallengesQuery" Grid.Column="1" Grid.Row="10" Grid.ColumnSpan="2" Margin="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" IsReadOnly="False" AcceptsReturn="True" TextWrapping="Wrap"
+          Text="Please provide 5 of the latest, up-to-date key business challenges that [CUSTOMER] is currently facing, internally and externally."></TextBox>
+
+        <Label Grid.Row="11" Grid.Column="1" Margin="1" x:Name="lblMessage"></Label>
+        <Button Grid.Row="11" Grid.Column="2" Margin="5" x:Name="btnProcess" Click="btnProcess_Click" >Process</Button>
     </Grid>
 </Window>
